@@ -1,0 +1,92 @@
+
+> vibe-generated-app@1.0.0 dev
+> vite
+
+
+  VITE v5.4.20  ready in 222 ms
+
+  ➜  Local:   http://localhost:3000/
+  ➜  Network: http://172.20.9.96:3000/
+2:48:03 AM [vite] warning: The character ">" is not valid inside a JSX element
+14 |        <section id="about" className="relative bg-[#050805] py-20">
+15 |          <div className="container mx-auto px-6 max-w-5xl">
+16 |            <h2 className="crt text-3xl sm:text-4xl mb-6">> ABOUT_</h2>
+   |                                                          ^
+17 |            <p className="crt-sub text-emerald-300/90 leading-relaxed max-w-3xl">
+18 |              We are a tiny indie studio chasing big feelings with small games. We love crunchy pixels, punchy loops,
+
+  Plugin: vite:esbuild
+  File: /home/workspace/src/App.jsx
+2:48:03 AM [vite] warning: The character ">" is not valid inside a JSX element
+29 |        <section id="contact" className="relative bg-[#040604] py-20">
+30 |          <div className="container mx-auto px-6 max-w-5xl">
+31 |            <h2 className="crt text-3xl sm:text-4xl mb-6">> CONTACT_</h2>
+   |                                                          ^
+32 |            <form className="grid sm:grid-cols-2 gap-4">
+33 |              <input className="input-crt" placeholder="your email" type="email" />
+
+  Plugin: vite:esbuild
+  File: /home/workspace/src/App.jsx
+2:48:03 AM [vite] warning: The character ">" is not valid inside a JSX element
+16 |          <div className="max-w-3xl">
+17 |            <h1 className="crt text-4xl sm:text-6xl font-black tracking-wider mb-4">
+18 |              > NEON RABBIT GAMES_
+   |              ^
+19 |            </h1>
+20 |            <p className="crt-sub text-emerald-300/90 text-lg sm:text-xl max-w-2xl mx-auto">
+
+  Plugin: vite:esbuild
+  File: /home/workspace/src/components/Hero.jsx
+2:48:03 AM [vite] warning: The character ">" is not valid inside a JSX element
+11 |      <section id="projects" className="relative bg-[#060a06] py-20">
+12 |        <div className="container mx-auto px-6 max-w-6xl">
+13 |          <h2 className="crt text-3xl sm:text-4xl mb-10">> PROJECTS_</h2>
+   |                                                         ^
+14 |          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+15 |            {games.map((g) => (
+
+  Plugin: vite:esbuild
+  File: /home/workspace/src/components/Projects.jsx
+2:48:04 AM [vite] ✨ new dependencies optimized: @splinetool/react-spline
+2:48:04 AM [vite] ✨ optimized dependencies changed. reloading
+2:48:04 AM [vite] warning: The character ">" is not valid inside a JSX element
+14 |        <section id="about" className="relative bg-[#050805] py-20">
+15 |          <div className="container mx-auto px-6 max-w-5xl">
+16 |            <h2 className="crt text-3xl sm:text-4xl mb-6">> ABOUT_</h2>
+   |                                                          ^
+17 |            <p className="crt-sub text-emerald-300/90 leading-relaxed max-w-3xl">
+18 |              We are a tiny indie studio chasing big feelings with small games. We love crunchy pixels, punchy loops,
+
+  Plugin: vite:esbuild
+  File: /home/workspace/src/App.jsx
+2:48:04 AM [vite] warning: The character ">" is not valid inside a JSX element
+29 |        <section id="contact" className="relative bg-[#040604] py-20">
+30 |          <div className="container mx-auto px-6 max-w-5xl">
+31 |            <h2 className="crt text-3xl sm:text-4xl mb-6">> CONTACT_</h2>
+   |                                                          ^
+32 |            <form className="grid sm:grid-cols-2 gap-4">
+33 |              <input className="input-crt" placeholder="your email" type="email" />
+
+  Plugin: vite:esbuild
+  File: /home/workspace/src/App.jsx
+2:48:04 AM [vite] warning: The character ">" is not valid inside a JSX element
+16 |          <div className="max-w-3xl">
+17 |            <h1 className="crt text-4xl sm:text-6xl font-black tracking-wider mb-4">
+18 |              > NEON RABBIT GAMES_
+   |              ^
+19 |            </h1>
+20 |            <p className="crt-sub text-emerald-300/90 text-lg sm:text-xl max-w-2xl mx-auto">
+
+  Plugin: vite:esbuild
+  File: /home/workspace/src/components/Hero.jsx
+2:48:04 AM [vite] warning: The character ">" is not valid inside a JSX element
+11 |      <section id="projects" className="relative bg-[#060a06] py-20">
+12 |        <div className="container mx-auto px-6 max-w-6xl">
+13 |          <h2 className="crt text-3xl sm:text-4xl mb-10">> PROJECTS_</h2>
+   |                                                         ^
+14 |          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+15 |            {games.map((g) => (
+
+  Plugin: vite:esbuild
+  File: /home/workspace/src/components/Projects.jsx
+The file does not exist at "/home/workspace/node_modules/.vite/deps/chunk-I4MZPW7S.js?v=35394813" which is in the optimize deps directory. The dependency might be incompatible with the dep optimizer. Try adding it to `optimizeDeps.exclude`.

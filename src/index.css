@@ -4,43 +4,118 @@
 
 @layer base {
   :root {
-    --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    --font-geist: 'Geist', system-ui, sans-serif;
-    --font-geist-mono: 'Geist Mono', monospace;
-    --font-mona: 'Mona Sans', system-ui, sans-serif;
-    --font-ibm-plex: 'IBM Plex Sans', system-ui, sans-serif;
-    --font-manrope: 'Manrope', system-ui, sans-serif;
+    --font-sans: 'IBM Plex Mono', 'Geist Mono', 'Geist', 'Inter', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    --crt-green: #34d399; /* emerald-400 */
+    --crt-green-soft: rgba(52, 211, 153, 0.6);
+    --crt-dark: #000000;
   }
 
   html {
     font-family: var(--font-sans);
-    font-feature-settings: "rlig" 1, "calt" 1;
+    background: #000;
+    color: var(--crt-green);
   }
 
   body {
     @apply antialiased;
+    background: radial-gradient(1200px 600px at 50% 0%, rgba(16,185,129,0.06), transparent 60%) #000;
+  }
+
+  ::selection { background: rgba(52, 211, 153, 0.3); color: #eafff6; }
+}
+
+/* CRT + VHS Aesthetic Utilities */
+@layer components {
+  .crt {
+    text-shadow: 0 0 6px var(--crt-green-soft), 0 0 14px rgba(16,185,129,0.4);
+    letter-spacing: 0.04em;
+    color: var(--crt-green);
+    filter: url('#'); /* noop to enable GPU accel */
+    animation: crt-flicker 6s infinite steps(100, end) alternate;
+  }
+
+  .crt-sub {
+    text-shadow: 0 0 4px rgba(16,185,129,0.45);
+  }
+
+  .scanlines {
+    position: absolute;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+      to bottom,
+      rgba(255,255,255,0.04),
+      rgba(255,255,255,0.04) 1px,
+      rgba(0,0,0,0.06) 2px,
+      rgba(0,0,0,0.06) 3px
+    );
+    mix-blend-mode: overlay;
+    opacity: 0.35;
+    animation: scan-move 12s linear infinite;
+  }
+
+  .btn-crt {
+    @apply inline-flex items-center justify-center px-5 py-2 rounded border transition-all;
+    border-color: rgba(16,185,129,0.5);
+    color: var(--crt-green);
+    background: linear-gradient(180deg, rgba(16,185,129,0.12), rgba(0,0,0,0.2));
+    box-shadow: 0 0 18px rgba(16,185,129,0.25) inset, 0 0 18px rgba(16,185,129,0.25);
+  }
+  .btn-crt:hover { box-shadow: 0 0 26px rgba(16,185,129,0.45), inset 0 0 26px rgba(16,185,129,0.35); }
+
+  .btn-crt-secondary {
+    @apply inline-flex items-center justify-center px-5 py-2 rounded border transition-all;
+    border-color: rgba(16,185,129,0.35);
+    color: rgba(52,211,153,0.85);
+    background: linear-gradient(180deg, rgba(0,0,0,0.2), rgba(16,185,129,0.06));
+  }
+  .btn-crt-secondary:hover { color: var(--crt-green); border-color: rgba(16,185,129,0.6); }
+
+  .input-crt {
+    @apply w-full rounded border px-3 py-2 bg-black/60 text-emerald-300 outline-none transition-all placeholder:text-emerald-400/40;
+    border-color: rgba(16,185,129,0.35);
+    box-shadow: inset 0 0 18px rgba(16,185,129,0.08);
+  }
+  .input-crt:focus {
+    border-color: rgba(16,185,129,0.75);
+    box-shadow: 0 0 22px rgba(16,185,129,0.3), inset 0 0 22px rgba(16,185,129,0.2);
   }
 }
 
-/* Custom utility classes for shadcn/ui patterns */
 @layer utilities {
-  .animate-in {
-    animation-name: animateIn;
-    animation-duration: 350ms;
-    --tw-enter-opacity: initial;
-    --tw-enter-scale: initial;
-    --tw-enter-rotate: initial;
-    --tw-enter-translate-x: initial;
-    --tw-enter-translate-y: initial;
+  .crt-vignette {
+    position: relative;
+  }
+  .crt-vignette::after {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    pointer-events: none;
+    background: radial-gradient(1200px 600px at 50% 20%, transparent, rgba(0,0,0,0.3) 70%),
+                linear-gradient(0deg, rgba(0,0,0,0.5), transparent 30%, transparent 70%, rgba(0,0,0,0.5));
   }
 
-  .animate-out {
-    animation-name: animateOut;
-    animation-duration: 350ms;
-    --tw-exit-opacity: initial;
-    --tw-exit-scale: initial;
-    --tw-exit-rotate: initial;
-    --tw-exit-translate-x: initial;
-    --tw-exit-translate-y: initial;
+  .glow-border {
+    box-shadow: 0 0 40px rgba(16,185,129,0.2);
   }
 }
+
+/* Keyframes for retro feel */
+@keyframes scan-move {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 100vh; }
+}
+
+@keyframes crt-flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; }
+  20%, 24%, 55% { opacity: 0.96; }
+  22% { opacity: 0.88; }
+  65% { opacity: 0.98; }
+}
+
+/* Subtle chromatic aberration on hover for links */
+ a:hover {
+  text-shadow:
+    1px 0 0 rgba(255,0,80,0.25),
+    -1px 0 0 rgba(0,200,255,0.25),
+    0 0 6px rgba(16,185,129,0.6);
+ }
