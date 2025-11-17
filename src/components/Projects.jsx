@@ -8,12 +8,16 @@ const games = [
 
 function Projects() {
   return (
-    <section id="projects" className="relative bg-[#060a06] py-20">
+    <section id="projects" className="relative bg-[#040805] py-20">
       <div className="container mx-auto px-6 max-w-6xl">
-        <h2 className="crt text-3xl sm:text-4xl mb-10">> PROJECTS_</h2>
+        <div className="flex items-end justify-between mb-8 gap-4">
+          <h2 className="crt text-3xl sm:text-4xl">> PROJECTS_</h2>
+          <div className="flex-1 h-px neon-divider" />
+        </div>
+
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {games.map((g) => (
-            <div key={g.title} className="group rounded-lg border border-emerald-500/30 bg-black/40 p-5 backdrop-blur-sm shadow-[0_0_30px_rgba(16,185,129,0.15)] hover:shadow-[0_0_50px_rgba(16,185,129,0.35)] transition-all">
+            <div key={g.title} className="group glass-card">
               <div className="mb-3 flex items-center justify-between text-emerald-300/80">
                 <span className="font-mono text-xs">{g.year}</span>
                 <span className="font-mono text-[10px] tracking-widest uppercase">{g.tag}</span>
@@ -25,6 +29,7 @@ function Projects() {
           ))}
         </div>
       </div>
+
       <div className="pointer-events-none absolute inset-0 scanlines" />
     </section>
   )
